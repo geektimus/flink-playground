@@ -1,6 +1,7 @@
 # Apache Flink Playground
 
-[![version](https://img.shields.io/badge/version-1.0.0-green.svg)][semver]
+[![version](https://img.shields.io/badge/version-0.0.1-green.svg)][semver]
+[![Build Status](https://travis-ci.org/geektimus/flink-playground.svg?branch=master)](https://travis-ci.org/geektimus/flink-playground)
 
 This project will contain all the code I will create while researching flink usages and how it compares with Apache Spark / Apache Beam / Kafka Streams
 
