@@ -8,31 +8,33 @@ class TextAnalyzerSpec extends Specification {
   "The simple word validator" should {
     "handle null a not valid word" in {
       val word: String = null
-      val result = TextAnalyzer.isValidWord(word)
+      val result = TextAnalyzer.defaultFilteringFn(word)
       result must beFalse
     }
 
     "handle empty string a not valid word" in {
       val word: String = ""
-      val result = TextAnalyzer.isValidWord(word)
+      val result = TextAnalyzer.defaultFilteringFn(word)
       result must beFalse
     }
 
     "handle an string containing spaces a not valid word" in {
       val word: String = "           "
-      val result = TextAnalyzer.isValidWord(word)
+      val result = TextAnalyzer.defaultFilteringFn(word)
       result must beFalse
     }
 
     "handle an string with a size less than the threshold as not valid word" in {
-      val word: String = "sun"
-      val result = TextAnalyzer.isValidWord(word)
+      val word: String = "rage"
+      val minWordLength = 4
+      val result = TextAnalyzer.isValidWord(minWordLength)(word)
       result must beFalse
     }
 
     "handle an string with a size greater than the threshold as valid word" in {
       val word: String = "awesome"
-      val result = TextAnalyzer.isValidWord(word)
+      val minWordLength = 5
+      val result = TextAnalyzer.isValidWord(minWordLength)(word)
       result must beTrue
     }
   }
